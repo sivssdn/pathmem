@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"path/filepath"
 	"runtime"
@@ -27,15 +28,30 @@ func getSavedAbsPath() string {
 //gets path from file matchng the alias name
 func getPath(filePath string, alias string) string {
 	file, err := ioutil.ReadFile(filePath)
-	if err != nil {
-		panic("Couldn't find saved paths file")
-	}
+	checkErr("Couldn't find saved paths file", err)
 	var paths []path
 	err = json.Unmarshal(file, &paths)
+	checkErr("Error in saved paths (json file)", err)
 	for _, path := range paths {
 		if strings.EqualFold(path.Alias, alias) {
 			return path.Path
 		}
 	}
 	return "not found"
+}
+
+//saves alias to corresponding absolute path, to json
+func savePath(filePath string, alias string, absPath string) {
+	file, err := ioutil.ReadFile(filePath)
+	checkErr("Couldn't find saved paths file", err)
+
+	var savedPaths []path
+	err = json.Unmarshal([]byte(file), &savedPaths)
+	checkErr("Error in saved paths (json file)", err)
+	newSavedpaths := append(savedPaths, path{Alias: alias, Path: absPath})
+	fmt.Println(newSavedpaths)
+
+	result, err := json.Marshal(newSavedpaths)
+	checkErr("Error appending to json", err)
+	err = ioutil.WriteFile(filePath, result, 644)
 }
