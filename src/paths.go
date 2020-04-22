@@ -49,9 +49,10 @@ func savePath(filePath string, alias string, absPath string) {
 	err = json.Unmarshal([]byte(file), &savedPaths)
 	checkErr("Error in saved paths (json file)", err)
 	newSavedpaths := append(savedPaths, path{Alias: alias, Path: absPath})
-	fmt.Println(newSavedpaths)
 
 	result, err := json.Marshal(newSavedpaths)
 	checkErr("Error appending to json", err)
 	err = ioutil.WriteFile(filePath, result, 644)
+	checkErr("Error appending to json", err)
+	fmt.Println("Filepath ", absPath, " saved with alias ", alias)
 }

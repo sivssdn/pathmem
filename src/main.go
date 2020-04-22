@@ -28,7 +28,7 @@ func router(args ...string) {
 	case "save":
 		currentDirPath := execCmd("pwd")
 		savePath(pathsDataFilePath, args[1], currentDirPath)
-	case "go":
+	case "open":
 		dirPath := getPath(pathsDataFilePath, args[1])
 		openDirectory(dirPath)
 	default:
