@@ -35,6 +35,9 @@ func router(args ...string) {
 			return
 		}
 		fmt.Println("Alias not found")
+	case "copy", "-c":
+		dirPath := getPath(pathsDataFilePath, args[1])
+		copyToClipboard(dirPath)
 	default:
 		fmt.Println("Unknown command.")
 	}
