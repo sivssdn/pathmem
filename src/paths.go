@@ -37,7 +37,7 @@ func getPath(filePath string, alias string) string {
 			return path.Path
 		}
 	}
-	return "not found"
+	return ""
 }
 
 //saves alias to corresponding absolute path, to json
