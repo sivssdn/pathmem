@@ -14,10 +14,13 @@ Path memory is a simple cli app that helps you navigate folder path faster. You 
 - If you want to develop: Clone the repository. Build the project using `go build` and you are good to go.
 
 ### Commands
-| Command | Description |
-| --- | --- |
-| save any_name | Saves currend folder path under alias `any_name` |
-| open any_name | Opens the absolute path corresponding to `any_name` in new terminal window. (currently supports only macos) |
+| Command | Shortcut | Description |
+| --- | --- | --- |
+| save any_name | -s | Save/Update current folder path under alias `any_name`. |
+| open any_name | -o | Open the absolute path corresponding to `any_name` in new terminal window. (macos) |
+| copy any_name | -c | Copy current folder path under alias `any_name` to clipboard. (macos) |
+
+`E.g., path -o dir_name` opens the dir path saved under dir_name.
 
 ### Tech Stack
 go 1.13

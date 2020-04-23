@@ -48,11 +48,31 @@ func savePath(filePath string, alias string, absPath string) {
 	var savedPaths []path
 	err = json.Unmarshal([]byte(file), &savedPaths)
 	checkErr("Error in saved paths (json file)", err)
-	newSavedpaths := append(savedPaths, path{Alias: alias, Path: absPath})
+	newSavedpaths, isUpdated := updatePath(savedPaths, alias, absPath)
+	if !isUpdated {
+		newSavedpaths = append(savedPaths, path{Alias: alias, Path: absPath})
+	}
 
 	result, err := json.Marshal(newSavedpaths)
 	checkErr("Error appending to json", err)
 	err = ioutil.WriteFile(filePath, result, 644)
 	checkErr("Error appending to json", err)
 	fmt.Println("Filepath ", absPath, " saved with alias ", alias)
+}
+
+//updates the folder path on acthing alias
+/**
+* @input []path struct
+* @returns []path, bool  updated array path struct with a boolean flag to indicate if the any path was updated
+ */
+func updatePath(paths []path, alias string, absPath string) ([]path, bool) {
+	pathUpdated := false
+	for index, pathObj := range paths {
+		if strings.EqualFold(pathObj.Alias, alias) {
+			paths[index] = path{Alias: alias, Path: absPath}
+			pathUpdated = true
+			break
+		}
+	}
+	return paths, pathUpdated
 }

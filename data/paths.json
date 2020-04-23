@@ -1,1 +1,6 @@
-[{"alias":"hfc","path":"/Users/paras/Desktop/hfc"},{"alias":"ops-master","path":"/Users/paras/Desktop/hfc/hfc-ops-master\n"},{"alias":"pathmem","path":"/Users/paras/Documents/learning/go/pathmem\n"},{"alias":"tmp","path":"/Users/paras/Documents/learning/tmp-vcs\n"}]
+[
+    {
+        "alias": "tmp",
+        "path": "/Users/paras/Documents/learning/tmp-vcs\n"
+    }
+]
