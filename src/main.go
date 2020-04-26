@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -33,7 +34,7 @@ func router(args ...string) {
 		toExecute := ""
 		if len(dirPath) > 0 {
 			if len(args) >= 4 && args[2] == "-e" {
-				toExecute = args[3]
+				toExecute = strings.Join(args[3:], " ")
 			}
 			openDirectoryAndExecute(dirPath, toExecute)
 			return

@@ -1,1 +1,18 @@
-[{"alias":"tmp","path":"/Users/paras/Documents/learning/tmp-vcs\n"},{"alias":"hfc","path":"/Users/paras/Desktop/hfc\n"},{"alias":"partner-app","path":"/Users/paras/Desktop/hfc/partner-app\n"},{"alias":"pathmem","path":"/Users/paras/Documents/learning/go/pathmem\n"}]
+[
+    {
+        "alias": "tmp",
+        "path": "/Users/paras/Documents/learning/tmp-vcs\n"
+    },
+    {
+        "alias": "hfc",
+        "path": "/Users/paras/Desktop/hfc\n"
+    },
+    {
+        "alias": "partner-app",
+        "path": "/Users/paras/Desktop/hfc/partner-app\n"
+    },
+    {
+        "alias": "pathmem",
+        "path": "/Users/paras/Documents/learning/go/pathmem"
+    }
+]
