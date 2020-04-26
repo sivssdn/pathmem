@@ -30,8 +30,12 @@ func router(args ...string) {
 		savePath(pathsDataFilePath, args[1], currentDirPath)
 	case "open", "-o":
 		dirPath := getPath(pathsDataFilePath, args[1])
+		toExecute := ""
 		if len(dirPath) > 0 {
-			openDirectory(dirPath)
+			if len(args) >= 4 && args[2] == "-e" {
+				toExecute = args[3]
+			}
+			openDirectoryAndExecute(dirPath, toExecute)
 			return
 		}
 		fmt.Println("Alias not found")

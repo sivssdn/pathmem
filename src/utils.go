@@ -23,8 +23,9 @@ func execCmd(command ...string) string {
 	return string(commandOutput)
 }
 
-func openDirectory(dirPath string) {
-	cmd := exec.Command("osascript", "-s", "h", "-e", `tell application "Terminal" to do script "cd `+dirPath+`"`)
+//opens the directory path & execute the command
+func openDirectoryAndExecute(dirPath string, command string) {
+	cmd := exec.Command("osascript", "-e", `tell application "Terminal" to do script "cd `+dirPath+command+`"`)
 	cmd.Run()
 }
 

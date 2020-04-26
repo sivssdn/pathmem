@@ -57,7 +57,7 @@ func savePath(filePath string, alias string, absPath string) {
 	checkErr("Error appending to json", err)
 	err = ioutil.WriteFile(filePath, result, 644)
 	checkErr("Error appending to json", err)
-	fmt.Println("Filepath ", absPath, " saved with alias ", alias)
+	fmt.Println("Filepath ", strings.ReplaceAll(absPath, "\n", ""), " saved with alias ", alias)
 }
 
 //updates the folder path on acthing alias

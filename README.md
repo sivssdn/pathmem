@@ -19,6 +19,7 @@ Path memory is a simple cli app that helps you navigate folder path faster. You 
 | save any_name | -s | Save/Update current folder path under alias `any_name`. |
 | open any_name | -o | Open the absolute path corresponding to `any_name` in new terminal window. (macos) |
 | copy any_name | -c | Copy current folder path under alias `any_name` to clipboard. (macos) |
+| -- | -e | Subflag used with -o. To be used when a command needs to be executed after opening a path using -o |
 
 `E.g., path -o dir_name` opens the dir path saved under dir_name.
 
