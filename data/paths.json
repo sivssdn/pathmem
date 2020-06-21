@@ -1,18 +1,38 @@
 [
     {
         "alias": "tmp",
-        "path": "/Users/paras/Documents/learning/tmp-vcs\n"
+        "path": "/Users/paras/Documents/learning/tmp-vcs"
     },
     {
         "alias": "hfc",
-        "path": "/Users/paras/Desktop/hfc\n"
+        "path": "/Users/paras/Desktop/hfc"
     },
     {
         "alias": "partner-app",
-        "path": "/Users/paras/Desktop/hfc/partner-app\n"
+        "path": "/Users/paras/Desktop/hfc/partner-app"
     },
     {
         "alias": "pathmem",
         "path": "/Users/paras/Documents/learning/go/pathmem"
+    },
+    {
+        "alias": "api-clients",
+        "path": "/Users/paras/Desktop/hfc/hfc-api-clients"
+    },
+    {
+        "alias": "ops-master",
+        "path": "/Users/paras/Desktop/hfc/hfc-ops-master"
+    },
+    {
+        "alias": "rust",
+        "path": "/Users/paras/Documents/learning/rust"
+    },
+    {
+        "alias": "whac",
+        "path": "/Users/paras/Documents/learning/rust/games/kill_bill/target/release"
+    },
+    {
+        "alias": "gfs",
+        "path": "/Users/paras/Desktop/hfc/gfs-kitchen-screens"
     }
 ]

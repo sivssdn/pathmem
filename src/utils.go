@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os/exec"
+	"strings"
 
 	"github.com/atotto/clipboard"
 )
@@ -34,4 +35,20 @@ func copyToClipboard(toSave string) {
 	if len(toSave) > 0 {
 		clipboard.WriteAll(toSave)
 	}
+}
+
+//gets length of largest string in an array
+func getMaxLength(slice []string) int {
+	maxLen := 0
+	for _, value := range slice {
+		if len(value) > maxLen {
+			maxLen = len(value)
+		}
+	}
+	return maxLen
+}
+
+//removes new line character from string
+func removeNewLine(s string) string {
+	return strings.Replace(s, "\n", "", -1)
 }

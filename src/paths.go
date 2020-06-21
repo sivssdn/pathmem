@@ -18,20 +18,26 @@ type path struct {
 func getSavedAbsPath() string {
 	_, filename, _, status := runtime.Caller(0)
 	if !status {
-		panic("Unable to read .env file.")
+		panic("Unable to read paths.json file.")
 	}
 	//path separator changed as per platform by path/filepath
 	aliasFilePath, _ := filepath.Abs(filepath.Dir(filepath.Dir(filename)) + "/data/paths.json")
 	return aliasFilePath
 }
 
-//gets path from file matchng the alias name
-func getPath(filePath string, alias string) string {
+//reads json file and returns its contents
+func getJSONContents(filePath string) []path {
 	file, err := ioutil.ReadFile(filePath)
 	checkErr("Couldn't find saved paths file", err)
 	var paths []path
 	err = json.Unmarshal(file, &paths)
 	checkErr("Error in saved paths (json file)", err)
+	return paths
+}
+
+//gets path from file matchng the alias name
+func getPath(filePath string, alias string) string {
+	paths := getJSONContents(filePath)
 	for _, path := range paths {
 		if strings.EqualFold(path.Alias, alias) {
 			return path.Path
@@ -50,7 +56,7 @@ func savePath(filePath string, alias string, absPath string) {
 	checkErr("Error in saved paths (json file)", err)
 	newSavedpaths, isUpdated := updatePath(savedPaths, alias, absPath)
 	if !isUpdated {
-		newSavedpaths = append(savedPaths, path{Alias: alias, Path: absPath})
+		newSavedpaths = append(savedPaths, path{Alias: removeNewLine(alias), Path: removeNewLine(absPath)})
 	}
 
 	result, err := json.Marshal(newSavedpaths)

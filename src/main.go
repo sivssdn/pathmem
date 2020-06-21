@@ -15,7 +15,7 @@ func main() {
 
 	//reding command line args
 	cmdArgs := os.Args[1:]
-	if len(cmdArgs) < 2 {
+	if len(cmdArgs) < 1 {
 		fmt.Println("Please specify program arguments")
 		return
 	}
@@ -43,6 +43,8 @@ func router(args ...string) {
 	case "copy", "-c":
 		dirPath := getPath(pathsDataFilePath, args[1])
 		copyToClipboard(dirPath)
+	case "paths", "-p":
+		printAliases(pathsDataFilePath)
 	default:
 		fmt.Println("Unknown command.")
 	}
