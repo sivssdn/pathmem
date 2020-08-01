@@ -13,7 +13,7 @@ func main() {
 		}
 	}()
 
-	//reding command line args
+	//reading command line args
 	cmdArgs := os.Args[1:]
 	if len(cmdArgs) < 1 {
 		fmt.Println("Please specify program arguments")
