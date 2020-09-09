@@ -43,7 +43,7 @@ func router(args ...string) {
 	case "copy", "-c":
 		dirPath := getPath(pathsDataFilePath, args[1])
 		copyToClipboard(dirPath)
-		fmt.Println(dirPath, " - copied to clipboard")
+		fmt.Println(dirPath)
 	case "paths", "-p":
 		printAliases(pathsDataFilePath)
 	default:
